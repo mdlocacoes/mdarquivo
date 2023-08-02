@@ -36,7 +36,7 @@
       cursor: pointer;
       color: #7EC88D;
       text-decoration: none;
-      transition: color 0.3s ease; /* Adicionando efeito de transição */
+      transition: color 0.3s ease, transform 0.3s ease; /* Adicionando efeito de transição para cor e translate */
     }
 
     .icon i {
@@ -49,7 +49,8 @@
 
     /* Efeito hover */
     .icon:hover {
-      color: #FFD700; /* Nova cor quando o mouse estiver sobre o ícone */
+      color: #FFFFFF; /* Nova cor branca quando o mouse estiver sobre o ícone */
+      transform: translateY(-5px); /* Desloca o ícone 5 pixels para cima */
     }
   </style>
 </head>
