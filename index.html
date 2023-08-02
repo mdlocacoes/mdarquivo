@@ -60,22 +60,41 @@
       <img src="img/icon.png" alt="Logomarca">
     </div>
     <div class="icon-row">
-      <a href="https://drive.google.com/drive/folders/1p32aGnWbdMCw4A-YUepMjRDD9YXtf1pQ?usp=sharing" target="_blank" class="icon">
-        <i class="fas fa-file"></i>
-        <div class="icon-name">Arquivo</div>
-      </a>
-      <!-- Novo ícone de gráfico de barras -->
-      <a href="https://drive.google.com/drive/folders/1EIviSeGHI1kfTFEQKOEGo7ehWyn7oECz?usp=sharing" target="_blank" class="icon">
+      <a href="#" class="icon" onclick="authenticateAndRedirect('planilhas')">
         <i class="fas fa-chart-bar"></i>
         <div class="icon-name">Gráficos</div>
       </a>
+      <a href="#" class="icon" onclick="authenticateAndRedirect('arquivo')">
+        <i class="fas fa-file"></i>
+        <div class="icon-name">Arquivo</div>
+      </a>
       <!-- Novo ícone de banco de dados -->
-      <a href="#" target="_blank" class="icon">
+      <a href="#" class="icon">
         <i class="fas fa-database"></i>
         <div class="icon-name">Banco de Dados</div>
       </a>
     </div>
   </div>
+
+  <script>
+    function authenticateAndRedirect(type) {
+      // Defina sua senha aqui (substitua "sua_senha" pela senha desejada)
+      const password = "sua_senha";
+      
+      const userPassword = prompt("Digite a senha:");
+      
+      if (userPassword === password) {
+        if (type === "planilhas") {
+          window.location.href = "https://drive.google.com/drive/folders/1EIviSeGHI1kfTFEQKOEGo7ehWyn7oECz?usp=sharing";
+        } else if (type === "arquivo") {
+          window.location.href = "https://drive.google.com/drive/folders/1p32aGnWbdMCw4A-YUepMjRDD9YXtf1pQ?usp=sharing";
+        }
+      } else {
+        alert("Senha incorreta!");
+      }
+    }
+  </script>
 </body>
 </html>
+
 
