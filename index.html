@@ -58,14 +58,18 @@
 <body>
   <!-- Prompt de autenticação -->
   <script>
-    // Defina sua senha aqui (substitua "sua_senha" pela senha desejada)
-    const password = "mdrecife";
+    // Defina as senhas aqui para cada tipo de ícone
+    const passwords = {
+      planilhas: "senha_planilhas",
+      arquivo: "senha_arquivo",
+      banco_de_dados: "senha_banco_de_dados"
+    };
 
     // Exibe o prompt de senha e verifica a autenticação
     function authenticate() {
       const userPassword = prompt("Digite a senha para acessar o site:");
 
-      if (userPassword === password) {
+      if (userPassword === "mdrecife") {
         showIcons();
       } else {
         alert("Senha incorreta! Tente novamente.");
@@ -82,7 +86,7 @@
     function authenticateAndRedirect(type) {
       const userPassword = prompt("Digite a senha:");
 
-      if (userPassword === password) {
+      if (userPassword === passwords[type]) {
         if (type === "planilhas") {
           window.location.href = "https://drive.google.com/drive/folders/1EIviSeGHI1kfTFEQKOEGo7ehWyn7oECz?usp=sharing";
         } else if (type === "arquivo") {
@@ -125,5 +129,6 @@
   </script>
 </body>
 </html>
+
 
 
