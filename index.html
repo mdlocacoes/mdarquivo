@@ -4,9 +4,55 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <style>
-    /* Estilos do CSS como antes */
+    body {
+      background-color: #162447;
+      color: #7EC88D;
+      font-family: Arial, sans-serif;
+    }
 
-    /* ... */
+    .icon-container {
+      display: none; /* Esconder os ícones até a autenticação ser feita */
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 95vh;
+    }
+
+    .logo {
+      margin-bottom: 25px;
+    }
+
+    .logo img{
+      width: 250px;
+      height: 200px;
+    }
+
+    .icon-row {
+      display: flex;
+    }
+
+    .icon {
+      text-align: center;
+      margin: 20px;
+      cursor: pointer;
+      color: #7EC88D;
+      text-decoration: none;
+      transition: color 0.3s ease, transform 0.3s ease; /* Adicionando efeito de transição para cor e translate */
+    }
+
+    .icon i {
+      font-size: 70px;
+    }
+
+    .icon-name {
+      margin-top: 10px;
+    }
+
+    /* Efeito hover */
+    .icon:hover {
+      color: #FFFFFF; /* Nova cor branca quando o mouse estiver sobre o ícone */
+      transform: translateY(-5px); /* Desloca o ícone 5 pixels para cima */
+    }
   </style>
 </head>
 <body>
