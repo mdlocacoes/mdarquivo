@@ -10,7 +10,7 @@
     }
 
     .icon-container {
-      display: flex;
+      display: none; /* Esconder os ícones até a autenticação ser feita */
       align-items: center;
       justify-content: center;
       flex-direction: column;
@@ -34,7 +34,7 @@
       text-align: center;
       margin: 20px;
       cursor: pointer;
-      color: #36ac4e;
+      color: #7EC88D;
       text-decoration: none;
       transition: color 0.3s ease, transform 0.3s ease; /* Adicionando efeito de transição para cor e translate */
     }
@@ -55,20 +55,44 @@
   </style>
 </head>
 <body>
+  <!-- Prompt de autenticação -->
+  <script>
+    // Defina sua senha aqui (substitua "sua_senha" pela senha desejada)
+    const password = "sua_senha";
+
+    // Exibe o prompt de senha e verifica a autenticação
+    function authenticate() {
+      const userPassword = prompt("Digite a senha para acessar o site:");
+
+      if (userPassword === password) {
+        showIcons();
+      } else {
+        alert("Senha incorreta! Tente novamente.");
+      }
+    }
+
+    // Exibe os ícones após a autenticação
+    function showIcons() {
+      const iconContainer = document.querySelector(".icon-container");
+      iconContainer.style.display = "flex";
+    }
+  </script>
+
   <div class="icon-container">
     <div class="logo">
       <img src="img/icon.png" alt="Logomarca">
     </div>
     <div class="icon-row">
-      <a href="#" class="icon" onclick="authenticateAndRedirect('planilhas')" target="_blank">
+      <a href="#" class="icon" onclick="authenticateAndRedirect('planilhas')">
         <i class="fas fa-chart-bar"></i>
-        <div class="icon-name">Planilhas</div>
+        <div class="icon-name">Gráficos</div>
       </a>
-      <a href="#" class="icon" onclick="authenticateAndRedirect('arquivo')" target="_blank">
+      <a href="#" class="icon" onclick="authenticateAndRedirect('arquivo')">
         <i class="fas fa-file"></i>
         <div class="icon-name">Arquivo</div>
       </a>
-      <a href="https://drive.google.com/drive/folders/1rQiZlsyT_ldkXlgbCrIS5vDIvkCFVGek" class="icon" target="_blank">
+      <!-- Novo ícone de banco de dados -->
+      <a href="#" class="icon">
         <i class="fas fa-database"></i>
         <div class="icon-name">Banco de Dados</div>
       </a>
@@ -76,24 +100,8 @@
   </div>
 
   <script>
-    function authenticateAndRedirect(type) {
-      // Defina sua senha aqui (substitua "sua_senha" pela senha desejada)
-      const password = "md2023";
-      
-      const userPassword = prompt("Digite a senha:");
-      
-      if (userPassword === password) {
-        if (type === "planilhas") {
-          window.location.href = "https://drive.google.com/drive/folders/1EIviSeGHI1kfTFEQKOEGo7ehWyn7oECz?usp=sharing";
-        } else if (type === "arquivo") {
-          window.location.href = "https://drive.google.com/drive/folders/1p32aGnWbdMCw4A-YUepMjRDD9YXtf1pQ?usp=sharing";
-        }
-      } else {
-        alert("Senha incorreta!");
-      }
-    }
+    // Chama a função de autenticação ao carregar a página
+    window.onload = authenticate;
   </script>
 </body>
 </html>
-
-
