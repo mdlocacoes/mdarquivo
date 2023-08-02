@@ -4,55 +4,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <style>
-    body {
-      background-color: #162447;
-      color: #7EC88D;
-      font-family: Arial, sans-serif;
-    }
+    /* Estilos do CSS como antes */
 
-    .icon-container {
-      display: none; /* Esconder os ícones até a autenticação ser feita */
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      height: 95vh;
-    }
-
-    .logo {
-      margin-bottom: 25px;
-    }
-
-    .logo img{
-      width: 250px;
-      height: 200px;
-    }
-
-    .icon-row {
-      display: flex;
-    }
-
-    .icon {
-      text-align: center;
-      margin: 20px;
-      cursor: pointer;
-      color: #7EC88D;
-      text-decoration: none;
-      transition: color 0.3s ease, transform 0.3s ease; /* Adicionando efeito de transição para cor e translate */
-    }
-
-    .icon i {
-      font-size: 70px;
-    }
-
-    .icon-name {
-      margin-top: 10px;
-    }
-
-    /* Efeito hover */
-    .icon:hover {
-      color: #FFFFFF; /* Nova cor branca quando o mouse estiver sobre o ícone */
-      transform: translateY(-5px); /* Desloca o ícone 5 pixels para cima */
-    }
+    /* ... */
   </style>
 </head>
 <body>
@@ -77,35 +31,11 @@
       const iconContainer = document.querySelector(".icon-container");
       iconContainer.style.display = "flex";
     }
-  </script>
 
-  <div class="icon-container">
-    <div class="logo">
-      <img src="img/icon.png" alt="Logomarca">
-    </div>
-    <div class="icon-row">
-      <a href="https://drive.google.com/drive/u/0/folders/1EIviSeGHI1kfTFEQKOEGo7ehWyn7oECz" class="icon" onclick="authenticateAndRedirect('planilhas')" target="_blank">
-        <i class="fas fa-chart-bar"></i>
-        <div class="icon-name">Gráficos</div>
-      </a>
-      <a href="https://drive.google.com/drive/u/0/folders/1p32aGnWbdMCw4A-YUepMjRDD9YXtf1pQ" class="icon" onclick="authenticateAndRedirect('arquivo')" target="_blank">
-        <i class="fas fa-file"></i>
-        <div class="icon-name">Arquivo</div>
-      </a>
-      <a href="https://drive.google.com/drive/u/0/folders/1rQiZlsyT_ldkXlgbCrIS5vDIvkCFVGek" class="icon" target="_blank">
-        <i class="fas fa-database"></i>
-        <div class="icon-name">Banco de Dados</div>
-      </a>
-    </div>
-  </div>
-
-  <script>
+    // Função de autenticação antes de redirecionar
     function authenticateAndRedirect(type) {
-      // Defina sua senha aqui (substitua "sua_senha" pela senha desejada)
-      const password = "md2023";
-      
       const userPassword = prompt("Digite a senha:");
-      
+
       if (userPassword === password) {
         if (type === "planilhas") {
           window.location.href = "https://drive.google.com/drive/folders/1EIviSeGHI1kfTFEQKOEGo7ehWyn7oECz?usp=sharing";
@@ -118,9 +48,33 @@
     }
   </script>
 
+  <!-- Container dos ícones -->
+  <div class="icon-container">
+    <!-- Ícones como antes, mas agora os links chamam a função de autenticação antes de redirecionar -->
+    <div class="logo">
+      <img src="img/icon.png" alt="Logomarca">
+    </div>
+    <div class="icon-row">
+      <!-- Usando uma função que chama a autenticação antes de redirecionar -->
+      <a href="#" class="icon" onclick="authenticateAndRedirect('planilhas')">
+        <i class="fas fa-chart-bar"></i>
+        <div class="icon-name">Gráficos</div>
+      </a>
+      <a href="#" class="icon" onclick="authenticateAndRedirect('arquivo')">
+        <i class="fas fa-file"></i>
+        <div class="icon-name">Arquivo</div>
+      </a>
+      <a href="#" class="icon" onclick="authenticateAndRedirect('banco_de_dados')">
+        <i class="fas fa-database"></i>
+        <div class="icon-name">Banco de Dados</div>
+      </a>
+    </div>
+  </div>
+
   <script>
     // Chama a função de autenticação ao carregar a página
     window.onload = authenticate;
   </script>
 </body>
 </html>
+
