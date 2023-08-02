@@ -100,6 +100,25 @@
   </div>
 
   <script>
+    function authenticateAndRedirect(type) {
+      // Defina sua senha aqui (substitua "sua_senha" pela senha desejada)
+      const password = "sua_senha";
+      
+      const userPassword = prompt("Digite a senha:");
+      
+      if (userPassword === password) {
+        if (type === "planilhas") {
+          window.location.href = "https://drive.google.com/drive/folders/1EIviSeGHI1kfTFEQKOEGo7ehWyn7oECz?usp=sharing";
+        } else if (type === "arquivo") {
+          window.location.href = "https://drive.google.com/drive/folders/1p32aGnWbdMCw4A-YUepMjRDD9YXtf1pQ?usp=sharing";
+        }
+      } else {
+        alert("Senha incorreta!");
+      }
+    }
+  </script>
+
+  <script>
     // Chama a função de autenticação ao carregar a página
     window.onload = authenticate;
   </script>
